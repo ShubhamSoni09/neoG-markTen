@@ -1,3 +1,4 @@
+// This is the main.js file
 let bill, cash, diff=0, i, j;
 
 let cashInputDiv = document.querySelector(".cashDiv");
