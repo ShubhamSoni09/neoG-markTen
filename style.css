@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
-    --primary: rgb(152, 214, 255);
-    --background: rgb(226, 205, 205);
-    --dark: rgba(216, 60, 60, 0.829);
+    --primary: rgb(97, 179, 233);
+    --background: rgb(255, 233, 233);
+    --dark: rgba(243, 46, 46, 0.829);
 }
 
 * {
@@ -40,7 +40,7 @@ main {
     border-radius: 0.2rem;
 }
 
-.wrapper {
+.wrapperclass {
     background-color: var(--background);
     color: var(--primary);
     text-align: left;
