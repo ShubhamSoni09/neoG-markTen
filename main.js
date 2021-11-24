@@ -1,22 +1,22 @@
+// This is the main.js file
+let bill, cash, diff=0, i, j;
 
-let billamount, cash, diff=0, i, j;
-
-let cashInput = document.querySelector(".cashDiv");
-let nextButton = document.querySelector("#next");
-let calculateButton = document.querySelector("#calculate");
+let cashInputDiv = document.querySelector(".cashDiv");
+let nextBtn = document.querySelector("#next");
+let calculateBtn = document.querySelector("#calculate");
 
 let errorDiv = document.querySelector(".error");
 let table = document.querySelector("table");
-let amountDiv = documentcashDivision.querySelector('div.hidden');
+let amountDiv = document.querySelector('div.hidden');
 let amount = document.querySelector(".amount");
 
 let notesArray = [2000, 500, 100, 20, 10, 5, 1,];
 let countArray = [0, 0, 0, 0, 0, 0, 0];
 
-nextButton.addEventListener('click', (e) => {
+nextBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    let billInput = document.querySelector("#billamount");
+    let billInput = document.querySelector("#bill");
 
     if( billInput.value === '' || billInput.value <= 0 ) {
         errorDiv.innerText = 'Error: Please enter the value appropriately.';
@@ -26,41 +26,41 @@ nextButton.addEventListener('click', (e) => {
         countArray = countArray.map(num => 0);
         showOutput();
     } else {
-        billamount = parseInt(billInput.value);
+        bill = parseInt(billInput.value);
 
         errorDiv.innerText = '';
 
-        cashInput.style.display = 'block';
-        calculateButtpn.style.display = 'block';
+        cashInputDiv.style.display = 'block';
+        calculateBtn.style.display = 'block';
     }
 });
 
-calculateButton.addEventListener('click', (e) => {
+calculateBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     let cashInput = document.querySelector("#cash");
-    let billInput = document.querySelector("#billamount");
+    let billInput = document.querySelector("#bill");
 
     countArray = countArray.map(num => 0);
     showOutput();
 
     if( cashInput.value === ''  || cashInput.value <= 0  || billInput.value === '' || billInput.value <= 0 ) {
-        errorDiv.innerText = 'Error: Please enter here the value appropriately.';
+        errorDiv.innerText = 'Error: Please enter the value appropriately.';
 
         amountDiv.classList.add('hidden');
         
     } else {
-        billamount = parseInt(billInput.value);
+        bill = parseInt(billInput.value);
         cash = parseInt(cashInput.value);
     
         errorDiv.innerText = '';
 
         amountDiv.classList.add('hidden');
 
-        if( cash === billamount ) {
+        if( cash === bill ) {
             errorDiv.innerText = 'No amount to be returned';
-        } else if ( cash < billamount ) {
-            errorDiv.innerText = 'Error: Cash given cannot be less than billamount amount';
+        } else if ( cash < bill ) {
+            errorDiv.innerText = 'Error: Cash given cannot be less than bill amount';
         } else {
             calculateChange();
         }    
@@ -69,7 +69,7 @@ calculateButton.addEventListener('click', (e) => {
 
 function calculateChange() {
 
-    diff = parseInt(cash) - parseInt(billamount);
+    diff = parseInt(cash) - parseInt(bill);
 
     amount.innerText = `Rs. ${diff}`;
 
